@@ -110,6 +110,11 @@
         window.open(url,'_blank');
       }
 
+      function open_in_google_maps_sat() {
+        var url = "https://www.google.com/maps/@" + last_report.latitude + "," + last_report.longitude + "," + last_report.altitude/2 + "a,35y," + last_report.heading + "h" + "/data=!3m1!1e3"
+        window.open(url,'_blank');
+      }
+
       function updateMap(msg) {
           var pos = L.latLng(msg.latitude, msg.longitude);
           marker.setLatLng(pos);
@@ -302,6 +307,7 @@
           main: document.getElementById("plane-popup"),
           pos: document.getElementById("plane-popup-pos"),
           gmap: document.getElementById("plane-popup-gmap"),
+          gmapsat: document.getElementById("plane-popup-gmap-sat"),
           follow: document.getElementById("plane-popup-follow"),
         };
         teleport_popup = {
@@ -344,6 +350,7 @@
       <div id="plane-popup">
         <p><h3 id="plane-popup-pos"></h3></p>
         <p><button id="plane-popup-gmap" onclick="open_in_google_maps();">open in google maps</button></p>
+        <p><button id="plane-popup-gmap-sat" onclick="open_in_google_maps_sat();">open in gmaps satellite</button></p>
         <p><button id="plane-popup-follow" onclick="toggle_follow();"></button></p>
       </div>
 
